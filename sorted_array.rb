@@ -7,19 +7,6 @@ class SortedArray
     # What should you do with each element of the incoming array?
   end
 
-  def add(new_ele)
-    # Hint: Use the Array#insert method.
-    raise NotImplementedError.new("You need to implement the add method!")
-  end
-
-  def size
-    @internal_arr.size
-  end
-
-  def [](index)
-    return @internal_arr.index
-  end
-
   def first_larger_index(target, start_ind=0, end_ind=@internal_arr.size)
     # array is empty, immediately return
     return 0 if @internal_arr.empty?
@@ -35,11 +22,21 @@ class SortedArray
     elsif target > mid_element
       return first_larger_index(target, midpoint, end_ind)
     else 
+      # target is less than the midpoint element
       return first_larger_index(target, start_ind, midpoint)
     end
   end
 
+  def add(new_ele)
+    index = first_larger_index(new_ele)
+    @internal_arr.insert(index, new_ele)
+  end
+
+  def size
+    @internal_arr.size
+  end
+
   def index(target)
-    raise NotImplementedError.new("You need to implement the index method!")
+    #raise NotImplementedError.new("You need to implement the index method!")
   end
 end
