@@ -1,6 +1,7 @@
 
 require 'rspec'
 require './sorted_array.rb'
+require './sorted_array.rb'
 
 describe SortedArray do
 
