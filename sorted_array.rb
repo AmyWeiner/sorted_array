@@ -5,11 +5,20 @@ class SortedArray
     @internal_arr = []
     # Fill in the rest of the initialize method here.
     # What should you do with each element of the incoming array?
+    
+    input_arr.each do |element|
+      add(element)
+    end
   end
 
+  def [](index)
+    return @internal_arr[index]
+  end
+  
   def first_larger_index(target, start_ind=0, end_ind=@internal_arr.size)
     # array is empty, immediately return
     return 0 if @internal_arr.empty?
+    # array has at least one element
     midpoint = ((end_ind - start_ind) / 2) + start_ind
     mid_element = @internal_arr[midpoint]
     # array contains one element
@@ -38,5 +47,6 @@ class SortedArray
 
   def index(target)
     #raise NotImplementedError.new("You need to implement the index method!")
+    return @internal_arr.index(target)
   end
 end
